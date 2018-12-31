@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form (submit)="doLogin()" [formGroup]="loginForm">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email"  formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" formControlName="password" name="password"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>LOGIN</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
