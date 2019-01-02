@@ -26,7 +26,6 @@ const  firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -38,10 +37,10 @@ const  firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    DashboardPage
   ],
   providers: [
     Auth,
+    Category,
     AngularFireAuth,
     StatusBar,
     SplashScreen,

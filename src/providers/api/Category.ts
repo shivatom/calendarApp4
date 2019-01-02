@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+
 /**
  * Api is a generic REST Api handler. Set your API url first.
  */
@@ -12,8 +13,8 @@ export class Category {
   constructor(private db:AngularFireDatabase, private fireAuth:AngularFireAuth) {
   }
 
-  getAllCategory(){
-    return this.db.list('/categories');
+  getAllCategory():AngularFireList<any>{
+    return this.db.list('/songs');
   }
   
 }

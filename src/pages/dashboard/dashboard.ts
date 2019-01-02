@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireList } from 'angularfire2/database';
+import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Category } from '../../providers/api/Category';
 
 /**
@@ -17,11 +17,12 @@ import { Category } from '../../providers/api/Category';
 })
 export class DashboardPage {
   categories$;
-  constructor(public navCtrl: NavController, private category:Category, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private category:Category,private db:AngularFireDatabase, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    this.categories$=this.category.getAllCategory();
+    this.categories$=this.db.list('/products');
+    console.log(this.categories$);
   }
 
 }
