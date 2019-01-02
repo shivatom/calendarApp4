@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireList, AngularFireObject, AngularFireDatabase } from 'angularfire2/database';
-import { Category } from '../../providers/api/Category';
-import { Observable } from 'rxjs/Observable';
+import { CategoriesProvider } from '../../providers';
+import { Category } from '../../providers/categories/modal/category';
 
 /**
  * Generated class for the DashboardPage page.
@@ -17,16 +16,13 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
-  categories;
-  constructor(public navCtrl: NavController, private db:AngularFireDatabase, private category:Category, public navParams: NavParams) {
+  
+  constructor(public navCtrl: NavController, private categoryServ:CategoriesProvider,  public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    this.category.getCustomersList().snapshotChanges().subscribe(customers => {
-      this.categories = customers;
-      console.log(this.categories);
-      
-    });
+    
+   // this.categoryServ.createCategory(this.categoriesList);
   }
 
 }

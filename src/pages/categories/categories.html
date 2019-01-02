@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>categories</ion-title>
+    <ion-title>Categories</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+  <ion-list>
+    <ion-list-header>
+        Categories List
+    </ion-list-header>
+    <ion-item *ngFor="let category of categoryList">Terminator II</ion-item>
+  </ion-list>
 
+  <ion-fab  right bottom >
+    <button ion-fab ><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

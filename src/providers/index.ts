@@ -1,4 +1,5 @@
 
 export { Auth } from './api/auth';
-export { Category } from './api/Category';
+export { DashboardProvider } from './dashboard/dashboard';
+export { CategoriesProvider } from './categories/categories';
 

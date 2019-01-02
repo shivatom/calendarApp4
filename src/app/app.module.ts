@@ -12,8 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { DashboardPage } from '../pages/dashboard/dashboard';
-import { Category, Auth } from '../providers';
+import { DashboardProvider, CategoriesProvider,  Auth } from '../providers';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -28,7 +27,8 @@ const  firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    
   ],
   imports: [
     BrowserModule,
@@ -43,11 +43,14 @@ const  firebaseConfig = {
   ],
   providers: [
     Auth,
-    Category,
+    CategoriesProvider,
+    DashboardProvider,
     AngularFireAuth,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DashboardProvider,
+    CategoriesProvider
   ]
 })
 export class AppModule {}

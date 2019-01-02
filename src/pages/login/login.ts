@@ -41,21 +41,7 @@ export class LoginPage {
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(6)]]
     })
-    
-    // let s = this.firebase.list('songs');
-    // s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
-    //   this.songList = [];
-    //   data.forEach(item => {
-    //     let a = item.payload.toJSON(); 
-    //     a['$key'] = item.key;
-    //     this.songList.push(a as Student);
-    //   })
-    // })
-    // this.songList.push({
-    //   name:"shiva1",
-    //   songs:"tera bna"
-    // })
-    
+       
   }
 
   // Attempt to login in through our User service
