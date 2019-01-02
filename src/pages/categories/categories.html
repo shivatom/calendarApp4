@@ -18,10 +18,10 @@
     <ion-list-header>
         Categories List
     </ion-list-header>
-    <ion-item *ngFor="let category of categoryList">Terminator II</ion-item>
+    <ion-item *ngFor="let category of categoryList">{{category.name}}</ion-item>
   </ion-list>
 
   <ion-fab  right bottom >
-    <button ion-fab ><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="addCategory()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CategoriesProvider } from '../../providers';
 import { Category } from '../../providers/categories/modal/category';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AddCategory } from './component/add-category';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -19,42 +20,32 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class CategoriesPage {
   categoryList;
   songList;
-  constructor(public navCtrl: NavController, private firebase:AngularFireDatabase, private categoryServ:CategoriesProvider, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public modalCtrl: ModalController,
+    private firebase:AngularFireDatabase, 
+    private categoryServ:CategoriesProvider, 
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
+    this.categoryServ.getCustomersList().snapshotChanges().subscribe(data => { 
+        this.categoryList = [];
+        data.forEach(item => {
+          let a = item.payload.toJSON(); 
+          a['$key'] = item.key;
+          this.categoryList.push(a as Category);
+        })
+      })
+  }
 
-    let s = this.firebase.list('categories');
-    s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
-      
-      
-    })
-
-    // this.categoryServ.getCustomersList().snapshotChanges().subscribe(data => { 
-    //     this.categoryList = [];
-    //     data.forEach(item => {
-    //       let a = item.payload.toJSON(); 
-    //       a['$key'] = item.key;
-    //       this.categoryList.push(a as Category);
-    //       console.log(this.categoryList);
-          
-    //     })
-    //   })
+  addCategory(){
+    alert();
+    const modal = this.modalCtrl.create(AddCategory);
+    modal.present();
   }
 
 }
 
 
- // let s = this.firebase.list('songs');
-    // s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
-    //   this.songList = [];
-    //   data.forEach(item => {
-    //     let a = item.payload.toJSON(); 
-    //     a['$key'] = item.key;
-    //     this.songList.push(a as Student);
-    //   })
-    // })
-    // this.songList.push({
-    //   name:"shiva1",
-    //   songs:"tera bna"
-    // })
+ 

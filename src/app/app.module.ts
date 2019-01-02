@@ -13,6 +13,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DashboardProvider, CategoriesProvider,  Auth } from '../providers';
+import { AddCategory } from '../pages/categories/component/add-category';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -28,7 +29,7 @@ const  firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    
+    AddCategory
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ const  firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AddCategory
   ],
   providers: [
     Auth,
