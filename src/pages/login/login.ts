@@ -4,14 +4,23 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { MainPage } from '../';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Auth } from '../../providers';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { DashboardPage } from '../dashboard/dashboard';
+
+export interface Student {
+  $key: string;
+  firstName: string;
+  lastName: string;
+  email: string
+  mobileNumber: Number;
+}
 
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
+
 export class LoginPage {
   // The account fields for the login form.
   // If you're using the username field with or without email, make
@@ -22,17 +31,30 @@ export class LoginPage {
   private loginErrorString: string;
   loginForm;
   list;
+  songList;
   constructor(public navCtrl: NavController,
     public auth: Auth,
-    private db:AngularFireDatabase,
     public toastCtrl: ToastController,
+    private firebase:AngularFireDatabase,
     private fb:FormBuilder,) {
     this.loginForm=fb.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(6)]]
     })
     
-    
+    // let s = this.firebase.list('songs');
+    // s.snapshotChanges().subscribe(data => { // Using snapshotChanges() method to retrieve list of data along with metadata($key)
+    //   this.songList = [];
+    //   data.forEach(item => {
+    //     let a = item.payload.toJSON(); 
+    //     a['$key'] = item.key;
+    //     this.songList.push(a as Student);
+    //   })
+    // })
+    // this.songList.push({
+    //   name:"shiva1",
+    //   songs:"tera bna"
+    // })
     
   }
 
