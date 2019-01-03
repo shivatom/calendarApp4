@@ -20,11 +20,15 @@ export class CategoriesProvider {
     //   this.customersRef.update(key, value).catch(error => this.handleError(error));
     // }
   
-    // deleteCustomer(key: string): void {
-    //   this.customersRef.remove(key).catch(error => this.handleError(error));
-    // }
-  
-    getCustomersList(): AngularFireList<Category> {
+    deleteCategory(key: string): void {
+      this.customersRef.remove(key).catch(error => this.handleError(error));
+    }
+    
+    getByCategoryId(id){
+
+    }
+    
+    getCategoryList(): AngularFireList<Category> {
       return this.customersRef;
     }
   

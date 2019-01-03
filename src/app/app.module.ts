@@ -13,7 +13,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DashboardProvider, CategoriesProvider,  Auth } from '../providers';
-import { AddCategory } from '../pages/categories/component/add-category';
+import { AddCategoryPage } from '../pages/add-category/add-category';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -29,7 +29,7 @@ const  firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    AddCategory
+    AddCategoryPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,7 @@ const  firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    AddCategory
+    AddCategoryPage
   ],
   providers: [
     Auth,
