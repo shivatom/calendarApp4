@@ -25,7 +25,7 @@ export class CategoriesProvider {
     }
     
     getByCategoryId(id){
-
+      return this.db.object(`${this.dbPath}/${id }`);
     }
     
     getCategoryList(): AngularFireList<Category> {

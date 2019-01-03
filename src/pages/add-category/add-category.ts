@@ -23,11 +23,16 @@ export class AddCategoryPage {
       name:['',[Validators.required]],
       description:['',[Validators.required]]
     })
-   
   }
+
   ionViewDidLoad(){
-    console.log(this.navParams.get('id'));
+    const key = this.navParams.get('id');console.log(key);
+    
+    this.categoryServ.getByCategoryId(key).valueChanges().subscribe(response=>{
+      this.categoryForm.setValue(response);
+    })
   }
+
   createCategory(){
     this.categoryServ.createCategory(this.categoryForm.value);
     this.viewCtrl.dismiss();
