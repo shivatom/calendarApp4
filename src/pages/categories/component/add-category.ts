@@ -11,8 +11,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 @IonicPage()
 @Component({
-  selector: 'page-categories',
-  templateUrl: '<h1>adasdasd</h1>',
+  selector: 'add-categories',
+  template: '<h1>adasdasd</h1>',
 })
 export class AddCategory {
   categoryList;
