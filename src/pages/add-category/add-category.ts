@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriesProvider } from '../../providers';
+import { e } from '@angular/core/src/render3';
 
 
 @IonicPage()
@@ -11,7 +12,7 @@ import { CategoriesProvider } from '../../providers';
 })
 export class AddCategoryPage {
   categoryForm:FormGroup;
-  
+  id;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -26,15 +27,19 @@ export class AddCategoryPage {
   }
 
   ionViewDidLoad(){
-    const key = this.navParams.get('id');console.log(key);
-    
-    this.categoryServ.getByCategoryId(key).valueChanges().subscribe(response=>{
+    this.id = this.navParams.get('id');console.log(this.id);
+    if(this.id)
+    this.categoryServ.getByCategoryId(this.id).valueChanges().subscribe(response=>{
       this.categoryForm.setValue(response);
     })
   }
 
   createCategory(){
-    this.categoryServ.createCategory(this.categoryForm.value);
+    if(this.id){
+      this.categoryServ.updateCategory(this.id,this.categoryForm.value);
+    }else{
+      this.categoryServ.createCategory(this.categoryForm.value);
+    }
     this.viewCtrl.dismiss();
   }
 

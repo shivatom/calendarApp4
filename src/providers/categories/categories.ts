@@ -16,9 +16,9 @@ export class CategoriesProvider {
       this.customersRef.push(customer);
     }
   
-    // updateCustomer(key: string, value: any): void {
-    //   this.customersRef.update(key, value).catch(error => this.handleError(error));
-    // }
+    updateCategory(key: string, value: any): void {
+      this.customersRef.update(key, value).catch(error => this.handleError(error));
+    }
   
     deleteCategory(key: string): void {
       this.customersRef.remove(key).catch(error => this.handleError(error));
