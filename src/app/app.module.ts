@@ -14,6 +14,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DashboardProvider, CategoriesProvider,  Auth } from '../providers';
 import { AddCategoryPage } from '../pages/add-category/add-category';
+import { DashboardPage } from '../pages/dashboard/dashboard';
+import { NavBarComponent } from '../components/nav-bar/nav-bar';
+import { ComponentsModule } from '../components/components.module';
+import { SharedModule } from './shared/shared.module';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -29,19 +33,20 @@ const  firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    AddCategoryPage
+    AddCategoryPage,
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    AddCategoryPage
+    AddCategoryPage,
   ],
   providers: [
     Auth,

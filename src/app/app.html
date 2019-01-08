@@ -6,21 +6,24 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <button ion-item (click)="openPage(homePage)">
-          DashBoard
+        <button ion-item  (click)="openPage('DashboardPage')">
+          <ion-icon name="logo-buffer" ></ion-icon> DashBoard
         </button>
-        <button ion-item (click)="openPage(friendsPage)">
-          Categories
+        <button ion-item (click)="openPage('CategoriesPage')">
+          <ion-icon ios="ios-cube" md="md-cube"></ion-icon>  Categories
         </button>
-        <button ion-item (click)="openPage(eventsPage)">
-          Add Expensive
+        <button ion-item (click)="openPage('IncomePage')">
+          <ion-icon ios="logo-usd" md="logo-usd"></ion-icon> Income
+        </button>
+        <button ion-item (click)="openPage('ExpensivesPage')">
+          <ion-icon name="trending-down"></ion-icon>  Expensive
+        </button>
+        <button ion-item (click)="openPage('ProfilePage')">
+          <ion-icon ios="ios-contact" md="md-contact"></ion-icon> Edit Profile
         </button>
         <button ion-item (click)="closeMenu()">
-          Edit Profile
+          <ion-icon name="log-out"></ion-icon> Sign Out
         </button>
-        <button ion-item (click)="closeMenu()">
-            Sign Out
-          </button>
       </ion-list>
     </ion-content>
   </ion-menu>

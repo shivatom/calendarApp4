@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { DashboardPage } from './dashboard';
+import { ExpensivesPage } from './expensives';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar';
 import { SharedModule } from '../../app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    DashboardPage
+    ExpensivesPage
   ],
   imports: [
     SharedModule,
-    IonicPageModule.forChild(DashboardPage),
+    IonicPageModule.forChild(ExpensivesPage),
   ],
 })
-export class DashboardPageModule {}
+export class ExpensivesPageModule {}

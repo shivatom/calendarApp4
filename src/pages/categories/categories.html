@@ -5,12 +5,12 @@
   Ionic pages and navigation.
 -->
 
-
+<ion-header>
+  <nav-bar [title]="'Category'"></nav-bar>
+</ion-header>
 
 <ion-content >
   <ion-list>
-    <nav-bar [title]="'Category'"></nav-bar>
-    
     <ion-list>
       <ion-item-sliding #item *ngFor="let category of categoryList">
         <ion-item>
