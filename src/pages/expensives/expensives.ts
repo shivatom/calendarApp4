@@ -28,6 +28,10 @@ export class ExpensivesPage {
     this.getCategoryList();
   }
 
+  saveExpensive(){
+    
+  }
+
   getCategoryList(){
     this.categoryServ.getCategoryList().snapshotChanges().subscribe(data => { 
       this.categoryList = [];

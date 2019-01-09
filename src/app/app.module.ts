@@ -18,6 +18,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { NavBarComponent } from '../components/nav-bar/nav-bar';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from './shared/shared.module';
+import { ExpensiveProvider } from '../providers/expensive/expensive';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -57,7 +58,8 @@ const  firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DashboardProvider,
-    CategoriesProvider
+    CategoriesProvider,
+    ExpensiveProvider
   ]
 })
 export class AppModule {}
