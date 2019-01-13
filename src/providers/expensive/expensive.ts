@@ -16,4 +16,8 @@ export class ExpensiveProvider {
     this.expensiveRef.push(customer);
   }
 
+  getExpensiveList(): AngularFireList<Expensive> {
+    return this.expensiveRef;
+  }
+
 }
