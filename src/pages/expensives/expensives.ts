@@ -43,8 +43,8 @@ export class ExpensivesPage {
   }
   
   addExpensive(){
-    const modal = this.modalCtrl.create(AddCategoryPage);
-    modal.present();
+    // const modal = this.modalCtrl.create(AddCategoryPage);
+    // modal.present();
   }
 
   getExpensiveList() {

@@ -19,6 +19,7 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from './shared/shared.module';
 import { ExpensiveProvider } from '../providers/expensive/expensive';
+import { IncomeProvider } from '../providers/income/income';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -59,7 +60,8 @@ const  firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DashboardProvider,
     CategoriesProvider,
-    ExpensiveProvider
+    ExpensiveProvider,
+    IncomeProvider
   ]
 })
 export class AppModule {}
