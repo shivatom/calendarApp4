@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder } from '@angular/forms';
+import { IncomeProvider } from '../../providers/income/income';
 
 /**
  * Generated class for the IncomePage page.
@@ -14,12 +16,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'income.html',
 })
 export class IncomePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  incomeForm;
+  constructor(
+    public navCtrl: NavController, 
+    private fb:FormBuilder, 
+    public navParams: NavParams,
+    private incomeServ:IncomeProvider
+    ) {
+    this.incomeForm=this.fb.group({
+      income_name:[],
+      amount:[],
+      date:[],
+      category_id:[]
+    })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IncomePage');
   }
 
+  saveIncome(){
+    this.incomeServ.saveIncome(this.incomeForm.value);
+  }
 }
