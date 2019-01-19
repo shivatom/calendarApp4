@@ -19,6 +19,7 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from './shared/shared.module';
 import { ExpensiveProvider } from '../providers/expensive/expensive';
+import { ExpensivesAddPage } from '../pages/expensives-add/expensives-add';
 
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
@@ -35,6 +36,7 @@ const  firebaseConfig = {
     MyApp,
     HomePage,
     AddCategoryPage,
+    ExpensivesAddPage
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ const  firebaseConfig = {
     MyApp,
     HomePage,
     AddCategoryPage,
+    ExpensivesAddPage
   ],
   providers: [
     Auth,

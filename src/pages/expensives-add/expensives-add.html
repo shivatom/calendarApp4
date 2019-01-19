@@ -7,12 +7,48 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>expensivesAdd</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismissModal()">Close</button>
+    </ion-buttons>
+    <ion-title>Add Expensive</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
+  
+  <form [formGroup]="expensiveForm">
 
+
+    <ion-item>
+      <ion-label stacked>Expensive Name </ion-label>
+      <ion-input type="text" value="" class="text-right"  formControlName="expname"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Amount</ion-label>
+      <ion-input type="number" value=""  formControlName="amount"></ion-input>
+    </ion-item>
+    
+  
+  
+    <ion-item>
+      <ion-label stacked>Date</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DDDD MMMM YYYY"  formControlName="date" ></ion-datetime>
+    </ion-item>
+  
+    
+      <ion-item>
+        <ion-label stacked>Category</ion-label>
+        <ion-select  multiple="false" cancelText="Cancel" okText="Select"  formControlName="category_id">
+          
+          <ion-option  *ngFor="let item of categoryList" [value]="item.$key">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+  
+      <ion-buttons end>
+        <button ion-button item-end margin-top (click)="saveExpensive()">Save</button>
+      </ion-buttons>
+      
+    </form>
 </ion-content>

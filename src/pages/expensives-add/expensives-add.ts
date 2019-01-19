@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { FormBuilder } from '@angular/forms';
+import { ExpensiveProvider } from '../../providers/expensive/expensive';
+import { CategoriesProvider } from '../../providers';
+import { Category } from '../../providers/categories/modal/category';
 
 /**
  * Generated class for the ExpensivesAddPage page.
@@ -14,12 +18,45 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'expensives-add.html',
 })
 export class ExpensivesAddPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  expensiveForm;
+  categoryList;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private fb:FormBuilder,
+    private categoryServ:CategoriesProvider,
+    public expServ:ExpensiveProvider,
+    private viewCtrl:ViewController,) 
+    {
+      this.expensiveForm=this.fb.group({
+        expname:[],
+        amount:[],
+        date:[],
+        category_id:[]
+      })
+   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExpensivesAddPage');
+    this.getCategoryList();
   }
 
+  getCategoryList(){
+    this.categoryServ.getCategoryList().snapshotChanges().subscribe(data => { 
+      this.categoryList = [];
+      data.forEach(item => {
+        let a = item.payload.toJSON(); 
+        a['$key'] = item.key;
+        this.categoryList.push(a as Category);
+      })
+      
+    })
+  }
+
+  saveExpensive(){
+    this.expServ.saveExpensive(this.expensiveForm.value);
+  }
+
+  dismissModal() {
+    this.viewCtrl.dismiss();
+  }
 }
