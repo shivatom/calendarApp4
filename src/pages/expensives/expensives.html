@@ -9,14 +9,31 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
-  <ion-card *ngFor="let exp of expensiveList">
-    
+  <ion-card class="banner-info"  padding>
+    <div>
+        <h1>Total Saving : $123</h1>
+        <small>Month of Expensive: January</small>
+        <h1>Your Total Saving : {{totalExp  | currency: 'INR':true }}</h1>
+    </div>
+  </ion-card> 
+  <ion-item>
+    <ion-label>Filter :</ion-label>
+    <ion-select [(ngModel)]="selectedCategory"  (ionChange)="filterByCategory($event)" >
+      <ion-option  [value]="'undefined'" >All</ion-option>
+      <ion-option  [value]="category.$key" *ngFor="let category of categoryList">{{category.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-card *ngFor="let exp of expensiveList  |  filter:selectedCategory">
     <ion-card-content>
-      {{ exp.expname}} : {{exp.amount}}
+      <span >{{ exp.expname}}</span> 
+      <span float-right class="red-text">{{ exp.amount  | currency: 'INR':true}}</span> 
     </ion-card-content>
   </ion-card>
+  <ion-list padding>
+    <ion-label text-right><h3>Total: {{totlaExpByFilter  | currency: 'INR':true}}</h3></ion-label>
+  </ion-list>
 
   <ion-fab  right bottom >
     <button ion-fab (click)="addExpensive()"><ion-icon name="add"></ion-icon></button>
