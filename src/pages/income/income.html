@@ -29,18 +29,14 @@
   <ion-input type="number" value=""  formControlName="amount"></ion-input>
 </ion-item>
 
-
-
-<ion-item>
-  <ion-label stacked>Date</ion-label>
-  <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DDDD MMMM YYYY"  formControlName="date" ></ion-datetime>
-</ion-item>
-
+  <ion-item>
+    <ion-label stacked>Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DDDD MMMM YYYY"  formControlName="date" ></ion-datetime>
+  </ion-item>
 
   <ion-item>
     <ion-label stacked>Category</ion-label>
     <ion-select  multiple="false" cancelText="Cancel" okText="Select"  formControlName="category_id">
-      
       <ion-option  *ngFor="let item of categoryList" [value]="item.$key">{{item.name}}</ion-option>
     </ion-select>
   </ion-item>
@@ -50,7 +46,7 @@
   </ion-buttons>
   
 </form>
-<ion-fab  right bottom >
-  <button ion-fab (click)="addExpensive()"><ion-icon name="add"></ion-icon></button>
-</ion-fab>
+  <ion-fab  right bottom >
+    <button ion-fab (click)="addExpensive()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

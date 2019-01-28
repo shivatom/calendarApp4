@@ -29,9 +29,7 @@ export class ExpensivesPage {
     public expServ:ExpensiveProvider,
     private modalCtrl:ModalController,
     private categoryServ:CategoriesProvider
-  ) {
-    
-  }
+  ){}
 
   ionViewDidLoad() {
     this.getExpensiveList(); 
