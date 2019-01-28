@@ -23,6 +23,8 @@ export class ExpensivesPage {
   categoryList;
   expensiveList;
   expensiveForm;
+  totalExp=0;
+  totlaExpByFilter=0;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -33,6 +35,7 @@ export class ExpensivesPage {
 
   ionViewDidLoad() {
     this.getExpensiveList(); 
+    this.getCategoryList();
   }
   
   addExpensive(){
@@ -47,10 +50,32 @@ export class ExpensivesPage {
         let a = item.payload.toJSON(); 
         a['$key'] = item.key;
         this.expensiveList.push(a as Expensive);
+        this.totalExp = this.totalExp + Number((a as Expensive).amount);
       })
+      this.updateTotalExp();
     })
   }
 
+  filterByCategory(event){
+    // console.log(event)
+    this.totlaExpByFilter=0;
+     this.expensiveList.filter(el => {
+       
+       if(el.category_id==event) {
+         console.log(this.totlaExpByFilter +'s'+ Number(el.amount));
+         
+        this.totlaExpByFilter = this.totlaExpByFilter + Number(el.amount);
+       }
+     });
+    
+  }
+
+  updateTotalExp(){
+    this.totlaExpByFilter=0;
+    this.expensiveList.forEach(item => {
+      this.totlaExpByFilter = this.totlaExpByFilter + Number(item.amount);
+    })
+  }
   getCategoryList(){
     this.categoryServ.getCategoryList().snapshotChanges().subscribe(data => { 
       this.categoryList = [];

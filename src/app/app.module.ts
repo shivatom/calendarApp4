@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
 import { ExpensiveProvider } from '../providers/expensive/expensive';
 import { IncomeProvider } from '../providers/income/income';
 import { ExpensivesAddPage } from '../pages/expensives-add/expensives-add';
+import { FilterDataPipe } from '../providers/pipes/filter-data-pipe';
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
   authDomain: "event-dcb8e.firebaseapp.com",
@@ -36,7 +37,7 @@ const  firebaseConfig = {
     MyApp,
     HomePage,
     AddCategoryPage,
-    ExpensivesAddPage
+    ExpensivesAddPage,
   ],
   imports: [
     BrowserModule,
