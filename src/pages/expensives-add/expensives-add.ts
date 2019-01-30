@@ -54,6 +54,7 @@ export class ExpensivesAddPage {
 
   saveExpensive(){
     this.expServ.saveExpensive(this.expensiveForm.value);
+    this.viewCtrl.dismiss();
   }
 
   dismissModal() {
