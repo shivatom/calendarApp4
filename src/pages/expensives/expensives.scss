@@ -6,5 +6,18 @@ page-expensives {
     .red-text{
         color: #ec0e0e;
     }
+
+    .filter-holder{
+        display: flex;
+        justify-content: space-between;
+        padding: 12px;
+    }
+    .w-100{
+        max-width: 100%;
+    }
+
+    .p-0{
+        padding:0px !important;
+    }
     
 }

@@ -18,19 +18,27 @@
         <h1>Your Total Saving : {{totalExp  | currency: 'INR':true }}</h1>
     </div>
   </ion-card> 
-  <ion-item>
-    <ion-label>Filter :</ion-label>
-    <ion-select [(ngModel)]="selectedCategory"  (ionChange)="filterByCategory($event)" >
-      <ion-option  [value]="'undefined'" >All</ion-option>
-      <ion-option  [value]="category.$key" *ngFor="let category of categoryList">{{category.name}}</ion-option>
-    </ion-select>
+
+    
+    <div class="filter-holder">
+      <div class="category-wraper">
+        <ion-item class="p-0">
+          
+          <ion-select [(ngModel)]="selectedCategory" class="w-100" placeholder="Filter by Category"  (ionChange)="filterByCategory($event)" >
+            <ion-option  [value]="'undefined'" >All</ion-option>
+            <ion-option  [value]="category.$key" *ngFor="let category of categoryList">{{category.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="date-wraper">
+          <ion-item>
+           
+            <ion-datetime displayFormat="MM/YYYY" placeholder="Filter by Date" pickerFormat="MMMM YYYY" ></ion-datetime>
+          </ion-item>
+      </div>
+    </div>
 
 
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Date</ion-label>
-    <ion-datetime displayFormat="MM/YYYY" pickerFormat="MMMM YYYY" ></ion-datetime>
-  </ion-item>
   <ion-card *ngFor="let exp of expensiveList  |  filter:selectedCategory">
     <ion-card-content>
       <span >{{ exp.expname}}</span> 
