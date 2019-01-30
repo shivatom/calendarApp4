@@ -24,6 +24,12 @@
       <ion-option  [value]="'undefined'" >All</ion-option>
       <ion-option  [value]="category.$key" *ngFor="let category of categoryList">{{category.name}}</ion-option>
     </ion-select>
+
+
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Date</ion-label>
+    <ion-datetime displayFormat="MM/YYYY" pickerFormat="MMMM YYYY" ></ion-datetime>
   </ion-item>
   <ion-card *ngFor="let exp of expensiveList  |  filter:selectedCategory">
     <ion-card-content>
