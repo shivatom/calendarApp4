@@ -25,6 +25,7 @@ export class ExpensivesPage {
   expensiveForm;
   totalExp=0;
   totlaExpByFilter=0;
+  filterDate=new DataCue
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -57,17 +58,12 @@ export class ExpensivesPage {
   }
 
   filterByCategory(event){
-    // console.log(event)
     this.totlaExpByFilter=0;
      this.expensiveList.filter(el => {
-       
        if(el.category_id==event) {
-         console.log(this.totlaExpByFilter +'s'+ Number(el.amount));
-         
         this.totlaExpByFilter = this.totlaExpByFilter + Number(el.amount);
        }
      });
-    
   }
 
   updateTotalExp(){
@@ -76,6 +72,7 @@ export class ExpensivesPage {
       this.totlaExpByFilter = this.totlaExpByFilter + Number(item.amount);
     })
   }
+
   getCategoryList(){
     this.categoryServ.getCategoryList().snapshotChanges().subscribe(data => { 
       this.categoryList = [];
