@@ -25,7 +25,7 @@ export class ExpensivesPage {
   expensiveForm;
   totalExp=0;
   totlaExpByFilter=0;
-  filterDate=new DataCue
+  filterDate= new Date().toISOString();;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,

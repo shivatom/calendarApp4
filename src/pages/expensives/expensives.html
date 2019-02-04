@@ -32,11 +32,12 @@
       </div>
       <div class="date-wraper">
           <ion-item>
+           
             <ion-datetime displayFormat="MM/YYYY"  [(ngModel)]="filterDate" placeholder="Filter by Date" pickerFormat="MMMM YYYY" ></ion-datetime>
           </ion-item>
       </div>
     </div>
-
+    
 
   <ion-card *ngFor="let exp of expensiveList  |  filter:selectedCategory:filterDate">
     <ion-card-content>
