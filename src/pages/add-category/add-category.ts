@@ -21,8 +21,9 @@ export class AddCategoryPage {
     public toastCtrl: ToastController,
     private fb:FormBuilder,) {
     this.categoryForm=fb.group({
-      name:['',[Validators.required]],
-      description:['',[Validators.required]]
+      category_name:['',[Validators.required]],
+      category_type:['income'],
+      category_description:['',[Validators.required]]
     })
   }
 

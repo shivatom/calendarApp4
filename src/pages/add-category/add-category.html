@@ -14,12 +14,17 @@
   <form  [formGroup]="categoryForm">
     <ion-list>
       <ion-item>
-        <ion-input type="text"  formControlName="name" placeholder="Category name"></ion-input>
+        <ion-input type="text"  formControlName="category_name" placeholder="Category name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" formControlName="description" placeholder="Category Description" ></ion-input>
+        <ion-input type="text" formControlName="category_description" placeholder="Category Description" ></ion-input>
       </ion-item>
-      
+      <ion-item>
+        <ion-select formControlName="category_type"  placeholder="Category Type"   >
+          <ion-option  [value]="income">Income</ion-option>
+          <ion-option  [value]="expense" >Expense</ion-option>
+        </ion-select>
+      </ion-item>
       <div padding>
         <button ion-button color="primary" block (click)="createCategory()" [disabled]="!categoryForm.valid">Create Category</button>
       </div>
