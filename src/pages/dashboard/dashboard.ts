@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { CategoriesProvider } from '../../providers';
 import { Category } from '../../providers/categories/modal/category';
 
@@ -17,12 +17,16 @@ import { Category } from '../../providers/categories/modal/category';
 })
 export class DashboardPage {
   
-  constructor(public navCtrl: NavController, private categoryServ:CategoriesProvider,  public navParams: NavParams) {
+  constructor(public navCtrl: NavController,  private  menuContrl:MenuController, private categoryServ:CategoriesProvider,  public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     
    // this.categoryServ.createCategory(this.categoriesList);
+  }
+
+  openPage(page){
+    this.navCtrl.setRoot(page)
   }
 
 }

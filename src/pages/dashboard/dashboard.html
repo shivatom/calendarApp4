@@ -5,63 +5,63 @@
   Ionic pages and navigation.
 -->
 
-<ion-content >
-  <ion-card class="dashboard-header ">
-      <ion-item>
-        <h1>Dashboard</h1>
-        <small>Hi, <span class="color-white">Shivshankar</span></small>
-        <ion-avatar item-end>
-            <img src="https://yt3.ggpht.com/a-/ACSszfE1tcMwsjkEZuOLG0WkZbAPBbCCKER-goKAMQ=s900-mo-c-c0xffffffff-rj-k-no">
-        </ion-avatar>
-      </ion-item>
-      <ion-card-content>
-          
-          <ion-row>
-              <ion-col>
-                <p>Income</p>
-                <h1>{{ '36200' | currency: 'INR':true  }}</h1>
-              </ion-col>
-              
-              <ion-col text-end>
-                <p >Expensive</p>
-                <h1>{{ '10200' | currency: 'INR':true  }}</h1>
-              </ion-col>
+<ion-content>
+    <ion-card class="dashboard-header ">
+        <ion-item>
+            <h1>Dashboard</h1>
+            <small>Hi, <span class="color-white">Shivshankar</span></small>
+            <ion-avatar item-end>
+                <img src="https://yt3.ggpht.com/a-/ACSszfE1tcMwsjkEZuOLG0WkZbAPBbCCKER-goKAMQ=s900-mo-c-c0xffffffff-rj-k-no">
+            </ion-avatar>
+        </ion-item>
+        <ion-card-content>
+
+            <ion-row>
+                <ion-col>
+                    <p>Income</p>
+                    <h1>{{ '36200' | currency: 'INR':true }}</h1>
+                </ion-col>
+
+                <ion-col text-end>
+                    <p>Expensive</p>
+                    <h1>{{ '10200' | currency: 'INR':true }}</h1>
+                </ion-col>
             </ion-row>
-      </ion-card-content>
+        </ion-card-content>
 
-     
-  </ion-card>  
-  <ion-row>
-      <ion-col>
-        <ion-card >
-            <ion-card-content>Add Expensive</ion-card-content>
-        </ion-card>
-      </ion-col>
 
-      <ion-col>
-          <ion-card >
-              <ion-card-content>Add Income</ion-card-content>
-          </ion-card>
+    </ion-card>
+    <ion-row>
+        <ion-col>
+            <ion-card>
+                <ion-card-content  (click)="openPage('IncomePage')">Add Expensive</ion-card-content>
+            </ion-card>
+        </ion-col>
+
+        <ion-col>
+            <ion-card>
+                <ion-card-content>Add Income</ion-card-content>
+            </ion-card>
         </ion-col>
         <ion-col>
-            <ion-card >
+            <ion-card>
                 <ion-card-content>Add Category</ion-card-content>
             </ion-card>
-          </ion-col>
-          <ion-col>
-              <ion-card >
-                  <ion-card-content>sdasd</ion-card-content>
-              </ion-card>
-            </ion-col>
-            <ion-col>
-                <ion-card >
-                    <ion-card-content>sdasd</ion-card-content>
-                </ion-card>
-              </ion-col> <ion-col>
-                  <ion-card >
-                      <ion-card-content>sdasd</ion-card-content>
-                  </ion-card>
-                </ion-col>
-  </ion-row>
+        </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-content>sdasd</ion-card-content>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-content>sdasd</ion-card-content>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card>
+                <ion-card-content>sdasd</ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
 </ion-content>
-
