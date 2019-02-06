@@ -36,7 +36,7 @@
       <ion-label stacked>Category</ion-label>
       <ion-select  multiple="false" cancelText="Cancel" okText="Select"  formControlName="category_id">
         
-        <ion-option  *ngFor="let item of categoryList" [value]="item.$key">{{item.name}}</ion-option>
+        <ion-option  *ngFor="let item of categoryList" [value]="item.$key">{{item.category_name}}</ion-option>
       </ion-select>
     </ion-item>
   
