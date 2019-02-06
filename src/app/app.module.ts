@@ -38,6 +38,7 @@ const  firebaseConfig = {
     HomePage,
     AddCategoryPage,
     ExpensivesAddPage,
+    DashboardPage
   ],
   imports: [
     BrowserModule,
@@ -50,6 +51,7 @@ const  firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
+    DashboardPage,
     AddCategoryPage,
     ExpensivesAddPage
   ],

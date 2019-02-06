@@ -13,7 +13,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 export class MyApp {
   @ViewChild('content') nav: NavController
   
-  rootPage:any = HomePage;
+  rootPage:any = DashboardPage;
 
   constructor(platform: Platform, private  menuContrl:MenuController, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
