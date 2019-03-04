@@ -25,8 +25,8 @@
         <ion-item class="p-0">
           
           <ion-select [(ngModel)]="selectedCategory" class="w-100" placeholder="Filter by Category"  (ionChange)="filterByCategory($event)" >
-            <ion-option  [value]="'undefined'" >All</ion-option>
-            <ion-option  [value]="category.$key" *ngFor="let category of categoryList">{{category.name}}</ion-option>
+            <ion-option  value="all" >All</ion-option>
+            <ion-option  [value]="category.$key" *ngFor="let category of categoryList">{{category.category_name}}</ion-option>
           </ion-select>
         </ion-item>
       </div>

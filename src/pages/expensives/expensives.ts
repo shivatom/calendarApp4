@@ -25,7 +25,7 @@ export class ExpensivesPage {
   expensiveForm;
   totalExp=0;
   totlaExpByFilter=0;
-  filterDate= new Date().toISOString();;
+  filterDate= new Date().toISOString();
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -60,7 +60,9 @@ export class ExpensivesPage {
   filterByCategory(event){
     this.totlaExpByFilter=0;
      this.expensiveList.filter(el => {
-       if(el.category_id==event) {
+       console.log(el.category_id+'=='+event);
+       
+       if(el.category_id==event || event=='all' ) {
         this.totlaExpByFilter = this.totlaExpByFilter + Number(el.amount);
        }
      });

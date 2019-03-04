@@ -1,3 +1,16 @@
 page-login {
+    .loginBg{
+        padding: 25px;
+        .scroll-content {
+            padding: 35px !important;
+        }
+    }
 
+    .logo{
+        font-size: 6.2em;
+        color: color($colors, primary) ;
+    }
+    .signIn{
+        margin-top: 5em;
+    }
 }

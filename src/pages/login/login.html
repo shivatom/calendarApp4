@@ -1,28 +1,34 @@
-<ion-header>
+<!--
+  Generated template for the LoginPage page.
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 
 
-<ion-content>
-  <form (submit)="doLogin()" [formGroup]="loginForm">
-    <ion-list>
 
-      <ion-item>
-        <ion-label fixed>Email</ion-label>
-        <ion-input type="email"  formControlName="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Password</ion-label>
-        <ion-input type="password" formControlName="password" name="password"></ion-input>
-      </ion-item>
+<ion-content padding class="loginBg">
+  <ion-icon class="logo" name="logo-python"></ion-icon>
 
-      <div padding>
-        <button ion-button color="primary" block>LOGIN</button>
-      </div>
-    </ion-list>
+  <h2 class="title">Welcome Back,</h2>
+  <p>Sign in to continue</p>
+  <form (ngSubmit)="logForm()">
+    <ion-item no-padding>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text"  name="enail"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label floating>Password</ion-label>
+      <ion-textarea  name="password"></ion-textarea>
+    </ion-item>
+    
+    <p margin text-right block>Forgot password</p>
+    
+    <button ion-button type="submit" block>Login</button>
   </form>
+  <div class="signIn">
+      <ion-title>New user? Signup</ion-title>
+  </div>
 </ion-content>
+
+

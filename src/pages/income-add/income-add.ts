@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
-import { ExpensiveProvider } from '../../providers/expensive/expensive';
+import { IncomeProvider } from '../../providers/income/income';
 import { CategoriesProvider } from '../../providers';
 import { Category } from '../../providers/categories/modal/category';
 
 /**
- * Generated class for the ExpensivesAddPage page.
+ * Generated class for the IncomeAddPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,30 +14,34 @@ import { Category } from '../../providers/categories/modal/category';
 
 @IonicPage()
 @Component({
-  selector: 'page-expensives-add',
-  templateUrl: 'expensives-add.html',
+  selector: 'page-income-add',
+  templateUrl: 'income-add.html',
 })
-export class ExpensivesAddPage {
-  expensiveForm;
+export class IncomeAddPage {
+  incomeForm;
   categoryList;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private fb:FormBuilder,
-    private categoryServ:CategoriesProvider,
-    public expServ:ExpensiveProvider,
-    private viewCtrl:ViewController,) 
-    {
-      this.expensiveForm=this.fb.group({
-        expname:[],
-        amount:[],
-        date:[new Date().toISOString()],
-        category_id:[]
-      })
-   }
+    private incomeServ:IncomeProvider,
+    private categoryServ:CategoriesProvider
+  ){
+    this.incomeForm=this.fb.group({
+      income_name:[],
+      amount:[],
+      date:[new Date().toISOString()],
+      category_id:[]
+    })
+  }
+
+  saveIncome(){
+    this.incomeServ.saveIncome(this.incomeForm.value);
+  }
 
   ionViewDidLoad() {
     this.getCategoryList();
+    console.log('ionViewDidLoad IncomeAddPage');
   }
 
   getCategoryList(){
@@ -50,14 +54,5 @@ export class ExpensivesAddPage {
       })
       
     })
-  }
-
-  saveExpensive(){
-    this.expServ.saveExpensive(this.expensiveForm.value);
-    this.viewCtrl.dismiss();
-  }
-
-  dismissModal() {
-    this.viewCtrl.dismiss();
   }
 }

@@ -22,6 +22,7 @@ import { ExpensiveProvider } from '../providers/expensive/expensive';
 import { IncomeProvider } from '../providers/income/income';
 import { ExpensivesAddPage } from '../pages/expensives-add/expensives-add';
 import { FilterDataPipe } from '../providers/pipes/filter-data-pipe';
+import { IncomeAddPage } from '../pages/income-add/income-add';
 const  firebaseConfig = {
   apiKey: "AIzaSyDjQP6Z7tTD4i2eWEe9Xg16U1jaUJnFFks",
   authDomain: "event-dcb8e.firebaseapp.com",
@@ -37,6 +38,7 @@ const  firebaseConfig = {
     MyApp,
     HomePage,
     AddCategoryPage,
+    IncomeAddPage,
     ExpensivesAddPage,
     DashboardPage
   ],
@@ -53,6 +55,7 @@ const  firebaseConfig = {
     HomePage,
     DashboardPage,
     AddCategoryPage,
+    IncomeAddPage,
     ExpensivesAddPage
   ],
   providers: [

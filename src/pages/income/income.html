@@ -12,39 +12,14 @@
   
 
 <ion-content padding>
+  <ion-card *ngFor="let exp of incomeList ">
+    <ion-card-content>
+      <span >sd{{ exp.income_name}}</span> 
+      
+    </ion-card-content>
+  </ion-card>
 
-
-  <form [formGroup]="incomeForm">
-
- 
-    <ion-item>
-      <ion-label stacked>Expensive Name </ion-label>
-      <ion-input type="text" value="" class="text-right"  formControlName="income_name"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Amount</ion-label>
-      <ion-input type="number" value=""  formControlName="amount"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Date</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DDDD MMMM YYYY"  formControlName="date" ></ion-datetime>
-    </ion-item>
-
-    <ion-item>
-      <ion-label stacked>Category</ion-label>
-      <ion-select  multiple="false" cancelText="Cancel" okText="Select"  formControlName="category_id">
-        <ion-option  *ngFor="let item of categoryList" [value]="item.$key">{{item.category_name}}</ion-option>
-      </ion-select>
-    </ion-item>
-
-  <ion-buttons end>
-    <button ion-button item-end margin-top (click)="saveIncome()">Save</button>
-  </ion-buttons>
-  
-</form>
   <ion-fab  right bottom >
-    <button ion-fab (click)="addExpensive()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="addIncome()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

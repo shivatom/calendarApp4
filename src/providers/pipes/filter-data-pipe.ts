@@ -2,12 +2,14 @@ import {Pipe} from '@angular/core';
 
 @Pipe({
   name: 'filter'
-})
+})  
 export class FilterDataPipe {
   transform(value, searchText,date) {
     let searchDate=new Date(date);
     if(value){
-      if(searchText==undefined || searchText=='undefined')   searchText='';
+      console.log(searchText);
+      
+      if(searchText==undefined || searchText=='all')   searchText='';
       
       return value.filter(item => {
         let entryDate=new Date(item.date);

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FormBuilder } from '@angular/forms';
 import { IncomeProvider } from '../../providers/income/income';
 import { CategoriesProvider } from '../../providers';
 import { Category } from '../../providers/categories/modal/category';
+import { IncomeAddPage } from '../income-add/income-add';
+import { Income } from '../../providers/income/modal/income';
 
 /**
  * Generated class for the IncomePage page.
@@ -19,39 +21,40 @@ import { Category } from '../../providers/categories/modal/category';
 })
 export class IncomePage {
   incomeForm;
-  categoryList;
+  incomeList;
   constructor(
     public navCtrl: NavController, 
     private fb:FormBuilder, 
     public navParams: NavParams,
+    private modalCtrl:ModalController,
     private categoryServ:CategoriesProvider,
     private incomeServ:IncomeProvider
     ) {
-    this.incomeForm=this.fb.group({
-      income_name:[],
-      amount:[],
-      date:[],
-      category_id:[]
-    })
-  }
+    
+    }
 
   ionViewDidLoad() {
-    this.getCategoryList();
+    this.getExpensiveList();
   }
 
-  saveIncome(){
-    this.incomeServ.saveIncome(this.incomeForm.value);
+  addIncome(){
+    const modal = this.modalCtrl.create(IncomeAddPage);
+    modal.present();
   }
-  
-  getCategoryList(){
-    this.categoryServ.getCategoryList().snapshotChanges().subscribe(data => { 
-      this.categoryList = [];
+
+  getExpensiveList() {
+    console.log('sd');
+    
+    this.incomeServ.getIncomeList().snapshotChanges().subscribe(data => { 
+      this.incomeList = [];
       data.forEach(item => {
         let a = item.payload.toJSON(); 
         a['$key'] = item.key;
-        this.categoryList.push(a as Category);
+        this.incomeList.push(a as Income);
+        console.log(this.incomeList);
       })
-      
     })
   }
+  
+  
 }
